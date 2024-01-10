@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademyNet</title>
+    <style>
+        html,
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background: cadetblue;
+            border: 8px solid #333;
+        }
+
+        .button {
+            margin: 15px;
+            padding: 15px 25px;
+            background-color: #fff;
+            border: 2px solid cadetblue;
+            border-radius: 2px;
+            color: cadetblue;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .square {
+            animation-name: toSquare, toCircle;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes toCircle {
+            0% {
+                border-radius: 0%;
+            }
+
+            100% {
+                border-radius: 50%;
+            }
+        }
+
+        @keyframes toSquare {
+            0% {
+                border-radius: 50%;
+            }
+
+            100% {
+                border-radius: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box"></div>
+    <button id="button" class="button">Button</button>
+</body>
+
+<script>
+    const box = document.getElementById('box');
+    const button = document.getElementById('button');
+
+    button.addEventListener('click', function () {
+        if (box.classList.contains('square')) {
+            box.classList.remove('square');
+        } else {
+            box.classList.add('square');
+        }
+    })
+</script>
+
+</html>
